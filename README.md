@@ -3,6 +3,10 @@
 ## Speed up
 - 在写企业项目适合尽量每个文件名加上企业缩写前缀，用Android studio为每个Java文件加上头标注
 - 用ButterKnife和ButterKnife Zelezny搭配起来让你写完布局时候快速生成View的Java代码
+- 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代
+
+## What the fuck?
+- 5.0和5.1系统的EditText的默认padding边距是不一样的，解决办法是在java代码中判断sdk api 然后给5.1系统加一个padding 好像是4dp还是8dp
 
 
 ## Be a habit
@@ -17,16 +21,16 @@
 - 在有键盘弹出的情况下不要在该页面设置View的Y方向的weight，因为这样你弹出键盘的时候你设置adjustSize的时候那个view会被挤压很难看。
 - 合理利用Java的内存管理机制，activity中intent传递对象也是传递地址，所以只需要在另外页面改变当前指，回到原页面后只需要update一下即可，不需要再onActivityResult中再取值。
 - 用MVP模式中一定要主要内存泄露问题，Presenter注意要弱应用, 注意在处理Fragment和Adapter情况下的数据同步问题
-- 用Handler一定要考虑内存泄露问题，在任何子线程中回调的接口中考虑一下这个页面已经被关闭的情况。
+- 用Handler一定要考虑内存泄露问题，请弱应用，在任何子线程中回调的接口中考虑一下这个页面已经被关闭的情况。
 - 你的Activity的Context给别人的时候，一定要考虑它是不是static等类，是不是会持有你的Context引用，不然的话不给！！！
 - 请考虑统一管理Exception，可使用Bugly等工具来收集统一。
 - 封装一个函数或接口尽量不要对外暴露你是如何实现，随时想着这个函数或接口是给一个陌生网友用的。
+- 在页面中执行new Handler().postDelayed()函数时候，记得要判断当前页面是否还存在。
 
 
 ## Persistence
 - 用户的个人信息千万不要存储在app目录下的Cache文件下，不然用户清除一下垃圾，“什么？我又要登录了？”。反过来，如果是不重要的缓存文件，请尽量存储在Cache下，不然app不主动清理，系统是清理不了的。
 - 如果想做缓存方案，请先确立详细的策略再下手，不然发现有问题，再升级是很伤脑筋的...比如更换数据库等
 - GreenDao需要一定的学习成本，如果不是极其大的App可以不考虑这个库（反正我是折腾了几天，发现除了速度快没其他了...怪我笨），Ormlite也是好的选择。
-- 
 
 
