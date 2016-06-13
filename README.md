@@ -4,6 +4,7 @@
 - 在写企业项目适合尽量每个文件名加上企业缩写前缀，用Android studio为每个Java文件加上头标注
 - 用ButterKnife和ButterKnife Zelezny搭配起来让你写完布局时候快速生成View的Java代码
 - 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代
+- 抽象类BaseActivity和BaseFragment等，尽量省去onCreate（）等方法，能减少很多多余的代码。
 
 ## What the fuck?
 - 5.0和5.1系统的EditText的默认padding边距是不一样的，解决办法是在java代码中判断sdk api 然后给5.1系统加一个padding 好像是4dp还是8dp
@@ -12,12 +13,13 @@
 
 
 ## Be a habit
-- 代码函数块中除了无意义的0等以为，请不要在代码中出现Magic number，请给它取个漂亮的名字，并final static
-- 在if判断中尽量做到 `if（null == object）` 而不要`if(object == null)`,很容易你少了一个等号，这种bug极其难被察觉
-- 在一个app中会有很多文字按钮等，尽量自己建立一个ContentTextView来继承TextView，如果设计师说要统一换字体样式的话只要改一个文件就好，其他按钮、layout同理，酌情考虑
+- 代码函数块中除了无意义的0等以为，请不要在代码中出现Magic number，请给它取个漂亮的名字，并final static。
+- 在if判断中尽量做到 `if（null == object）` 而不要`if(object == null)`,很容易你少了一个等号，这种bug极其难被察觉。
+- 在一个app中会有很多文字按钮等，尽量自己建立一个ContentTextView来继承TextView，如果设计师说要统一换字体样式的话只要改一个文件就好，其他按钮、layout同理，酌情考虑。
 - 注释中//后空一格，首字母大写！
-- 没完成或没写好的功能或者trick的功能块，请加上 // TODO，并且在github上加issue，避免以后遗漏掉该问题
-- 回调函数的命名尽量是onXXX(){}，加载网络数据函数可命名为loadXXX(){},
+- 没完成或没写好的功能或者trick的功能块，请加上 // TODO，并且在github上加issue，避免以后遗漏掉该问题。
+- 回调函数的命名尽量是onXXX(){}，加载网络数据函数可命名为loadXXX(){}等等。
+- 写一个新的feature的顺序我觉得应该是：思考逻辑是否跑通 -> 技术会不会存在问题 -> Model -> Network -> Presenter -> Xml -> Adapter(如果有列表) -> View
 
 ## Memory optimize
 - 在有键盘弹出的情况下不要在该页面设置View的Y方向的weight，因为这样你弹出键盘的时候你设置adjustSize的时候那个view会被挤压很难看。
