@@ -1,16 +1,20 @@
 # 自己在Android开发中遇到的一些问题Summary
 
 ## Speed up
+- 如果在用Shadowsocks的话可以给Android studio也加上proxy来加快Gradle的下载，在preference里面修改http Proxy方式为socks并且设置ip：127.0.0.1， 端口1080，也就是用本机来代理。
+- 用Gradle下载一些新的库时候，如果觉得慢你可以建立另外一个project， 在另外一个project来下载maven库，下载好了开启offline模式一键同步另外工程下好的库，再也不用浪费时间在等库下载了。
 - 在写企业项目适合尽量每个文件名加上企业缩写前缀，用Android studio为每个Java文件加上头标注
 - 用ButterKnife和ButterKnife Zelezny搭配起来让你写完布局时候快速生成View的Java代码
 - 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代
 - 抽象类BaseActivity和BaseFragment等，尽量省去onCreate（）等方法，能减少很多多余的代码。
+- 打Log的时候可以直接用logd + logt来快速实现，在自己不太确定的时候得先打开log，可以自己规范Logger类。
+-
 
 ## What the fuck?
 - 5.0和5.1系统的EditText的默认padding边距是不一样的，解决办法是在java代码中判断sdk api 然后给5.1系统加一个padding 好像是4dp还是8dp
 - 属性动画中的属性"rotation" 和"rotationX"的旋转方式是不一样的， 具体怎么不一样，试试就知道了。ObjectAnimator.ofFloat(yourView, "rotation", 180.0f, 0.0f).setDuration(1000).start();
 - 从Activity的stack栈中，A在栈顶，B在A下面。A finish()后的生命周期是B的onCreate()-->A的onStop()-->A的onDestroy();
-
+- 用Instant Run的时候如果遇到修改了后仍然提示“No changes deploy”, 解决方案是拔数据线重新插。
 
 ## Be a habit
 - 代码函数块中除了无意义的0等以为，请不要在代码中出现Magic number，请给它取个漂亮的名字，并final static。
