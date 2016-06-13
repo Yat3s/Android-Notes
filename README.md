@@ -5,13 +5,13 @@
 - 用Gradle下载一些新的库时候，如果觉得慢你可以建立另外一个project， 在另外一个project来下载maven库，下载好了开启offline模式一键同步另外工程下好的库，再也不用浪费时间在等库下载了。
 - 在写企业项目适合尽量每个文件名加上企业缩写前缀，用Android studio为每个Java文件加上头标注。
 - 用ButterKnife和ButterKnife Zelezny搭配起来让你写完布局时候快速生成View的Java代码。
-- 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代。
 - 抽象类BaseActivity和BaseFragment等，尽量省去onCreate（）等方法，能减少很多多余的代码。
 - 打Log的时候可以直接用logd + logt来快速实现，在自己不太确定的时候得先打开log，可以自己规范Logger类。
 
 ## What the fuck?
+- 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代。
 - 5.0和5.1系统的EditText的默认padding边距是不一样的，解决办法是在java代码中判断sdk api 然后给5.1系统加一个padding 好像是4dp还是8dp。
-- 属性动画中的属性"rotation" 和"rotationX"的旋转方式是不一样的， 具体怎么不一样，试试就知道了。ObjectAnimator.ofFloat(yourView, "rotation", 180.0f, 0.0f).setDuration(1000).start()。
+- 属性动画中的属性"rotation" 和"rotationX"的旋转方式是不一样的， 具体怎么不一样，试试就知道了。`ObjectAnimator.ofFloat(yourView, "rotation", 180.0f, 0.0f).setDuration(1000).start()`。
 - 从Activity的stack栈中，A在栈顶，B在A下面。A finish()后的生命周期是B的onCreate()-->A的onStop()-->A的onDestroy()。
 - 用Instant Run的时候如果遇到修改了后仍然提示“No changes deploy”, 解决方案是拔数据线重新插。
 
@@ -32,7 +32,7 @@
 - 你的Activity的Context给别人的时候，一定要考虑它是不是static等类，是不是会持有你的Context引用，不然的话不给！！！
 - 请考虑统一管理Exception，可使用Bugly等工具来收集统一。
 - 封装一个函数或接口尽量不要对外暴露你是如何实现，随时想着这个函数或接口是给一个陌生网友用的。
-- 在页面中执行new Handler().postDelayed()函数时候，记得要判断当前页面是否还存在。
+- 在页面中执行`new Handler().postDelayed()`函数时候，记得要判断当前页面是否还存在。
 
 
 ## Persistence
