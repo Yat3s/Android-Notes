@@ -14,6 +14,7 @@
 - 属性动画中的属性"rotation" 和"rotationX"的旋转方式是不一样的， 具体怎么不一样，试试就知道了。`ObjectAnimator.ofFloat(yourView, "rotation", 180.0f, 0.0f).setDuration(1000).start()`。
 - 从Activity的stack栈中，A在栈顶，B在A下面。A finish()后的生命周期是B的onCreate()-->A的onStop()-->A的onDestroy()。
 - 用Instant Run的时候如果遇到修改了后仍然提示“No changes deploy”, 解决方案是拔数据线重新插。
+- 你的recyclerView的父布局是LinearLayout并且 android:orientation="horizontal"，而且你的RecyclerView设置了Weight的话，你会发现每次收起弹出键盘的时候recyclerView里面的列表都会滚动到顶部，怎么解释我也不知道。
 
 ## Be a habit
 - 代码函数块中除了无意义的0等以为，请不要在代码中出现Magic number，请给它取个漂亮的名字，并final static。
@@ -38,6 +39,6 @@
 ## Persistence
 - 用户的个人信息千万不要存储在app目录下的Cache文件下，不然用户清除一下垃圾，“什么？我又要登录了？”。反过来，如果是不重要的缓存文件，请尽量存储在Cache下，不然app不主动清理，系统是清理不了的。
 - 如果想做缓存方案，请先确立详细的策略再下手，不然发现有问题，再升级是很伤脑筋的...比如更换数据库等。
-- GreenDao需要一定的学习成本，如果不是极其大的App可以不考虑这个库（反正我是折腾了几天，发现除了速度快没其他了...怪我笨），Ormlite也是好的选择。
+- GreenDao需要一定的学习成本，如果不是极其大的App可以不考虑这个库（反正我是折腾了一天，发现除了速度快没其他了...怪我笨），Ormlite也是好的选择。
 - ActiveAndroid也是一个不错的sqlite库，用起来非常方便。
 - 在处理缓存的流程一定要：加载数据--》显示数据--》保存缓存。   第二步跟第三步不能换，因为如果第二步出问题了，第三步也会被打断就不会保存错误数据到缓存了。
