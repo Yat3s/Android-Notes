@@ -1,4 +1,5 @@
 # 自己在Android开发中遇到的一些问题Summary
+Just a summary and keep update it.
 
 ## Speed up
 - 如果在用Shadowsocks的话可以给Android studio也加上proxy来加快Gradle的下载，在preference里面修改http Proxy方式为socks并且设置ip：127.0.0.1， 端口1080，也就是用本机来代理。
