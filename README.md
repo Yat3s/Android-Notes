@@ -7,7 +7,8 @@ Just a summary and keep update it.
 - 在写企业项目适合尽量每个文件名加上企业缩写前缀，用Android studio为每个Java文件加上头标注。
 - 用ButterKnife和ButterKnife Zelezny搭配起来让你写完布局时候快速生成View的Java代码。
 - 抽象类BaseActivity和BaseFragment等，尽量省去onCreate（）等方法，能减少很多多余的代码。
-- 打Log的时候可以直接用logd + logt来快速实现，在自己不太确定的时候得先打开log，可以自己规范Logger类。
+- 打Log的时候可以直接用logd + logt来快速实现，在自己不太确定的时候得先打开log，当然也可以自己规范Logger类。
+- 合理利用Gradle的动态任务来做一些事情，能加速很多操作，比如说生成临时的变量等。
 
 ## What the fuck?
 - 在Gradle中配置properties时候注意你从properties中拿的中文可能是乱码，可用unicode替代。
